@@ -1,6 +1,8 @@
 # PyJsArray
 
-Build: [![adamauckland](https://circleci.com/gh/adamauckland/PyJsArray.svg?style=svg)](https://github.com/adamauckland/PyJsArray)
+Build: [![adamauckland](https://circleci.com/gh/adamauckland/PyJsArray.svg?style=svg)](https://app.circleci.com/github/adamauckland/PyJsArray/pipelines)
+
+[View on GitHub](https://github.com/adamauckland/PyJsArray)
 
 Do you love Python list slicing?
 
