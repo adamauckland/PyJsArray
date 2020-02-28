@@ -29,17 +29,21 @@ Create an array:
 		"dog"
 	];
 
-Great! Create a PyJsArray object, passing the array in:
+
+Create a PyJsArray object, passing your array in:
 
 	const newArray = new PyJsArray(array);
 
-Now let's slice!
+
+Accessing from the end backwards:
 
 	newArray[-1] // returns "dog"
+	
+	
+PyJsArray also accepts the start:end format, _which must be quoted or JS will think it's an object_
 
-	newArray["-1:"] // returns "dog"
-
-* NOTE! YOU NEED TO QUOTE THE KEY! *
+	newArray["-2:"] // returns ["cat", "dog"]
+	
 
 ## Stepped slicing
 
