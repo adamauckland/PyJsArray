@@ -39,7 +39,9 @@ Now let's slice!
 
 	newArray["-1:"] // returns "dog"
 
-# NOTE! YOU NEED TO QUOTE THE KEY!
+* NOTE! YOU NEED TO QUOTE THE KEY! *
+
+## Stepped slicing
 
 Stepped slicing. A third "step" parameter can be passed in to return every 2nd, 3rd or nth item. It also works in reverse.
 
@@ -58,7 +60,7 @@ When reversing, start index must be higher than end index.
 
 	newArray["5:1:-2"]
 
-# END INDEXES ARE NON-INCLUSIVE.
+* END INDEXES ARE NON-INCLUSIVE. *
 
 In the above example, we do not get "fish" returned because "fish" is at index[5] and as 5 is our end index (non-inclusive), it gets ommitted.
 
