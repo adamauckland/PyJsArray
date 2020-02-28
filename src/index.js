@@ -1,6 +1,10 @@
-// negative indices rule
-//
-//     pyArray[-1]
+/**
+ * negative indices rule
+ *
+ * @param {*} array
+ * @param {*} rule
+ * @returns array
+ */
 function ruleNegativeIndex(array, rule) {
 	const negativeIndex = parseInt(rule, 10);
 
@@ -9,9 +13,44 @@ function ruleNegativeIndex(array, rule) {
 	}
 }
 
-// start and end slice rule
-//
-//     pyArray["1:3"]
+/**
+ * stepSlice. Converts an array into a stepped array
+ *
+ * @param {*} array
+ * @param {*} step
+ */
+function stepSlice(startIndex, endIndex, array, step) {
+	let index = startIndex;
+	let result = [];
+
+	while (true) {
+		result.push(array[index]);
+
+		index += step;
+
+		if (step > 0) {
+			if (index >= endIndex) {
+				break;
+			}
+		}
+
+		if (step < 0) {
+			if (index <= endIndex) {
+				break;
+			}
+		}
+	}
+
+	return result;
+}
+
+/**
+ * start and end slice rule
+ *
+ * @param {*} array
+ * @param {*} rule
+ * @returns array
+ */
 function ruleSplitSlice(array, rule) {
 	const pieces = rule.split(":");
 
@@ -28,7 +67,18 @@ function ruleSplitSlice(array, rule) {
 		endIndex = parseInt(pieces[1], 10);
 	}
 
-	return array.slice(startIndex, endIndex);
+	let slice;
+
+	// if we have a step parameter
+	if (pieces.length === 3) {
+		step = parseInt(pieces[2], 10);
+
+		slice = stepSlice(startIndex, endIndex, array, step);
+	} else {
+		slice = array.slice(startIndex, endIndex);
+	}
+
+	return slice;
 }
 
 const arrayRulesEngine = {
@@ -54,8 +104,14 @@ const arrayRulesEngine = {
 	}
 }
 
+/**
+ * PyJsArray object for Python-like list-access
+ *
+ * @param {*} inputArray
+ * @returns PyJsArray
+ */
 function PyJsArray(inputArray) {
-	// store the array
+	// store the array in a pseudo-private place
 	this.__array = inputArray;
 
 	// return a new proxy wrapped object

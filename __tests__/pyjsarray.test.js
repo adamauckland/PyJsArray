@@ -248,3 +248,72 @@ test("PyJsArray._array returns a reference to the underlying array'", () => {
 	// assert
 	expect(newArray._array.length).toBe(7);
 });
+
+test("PyJsArray accepts a step parameter. From 1-5. NOTE END IS NOT INCLUSIVE", () => {
+	// arrange
+	const array = [
+		"apple", // 0
+		"ball", // 1
+		"cat", // 2
+		"dog", // 3
+		"elephant", // 4
+		"goat" // 5
+	];
+
+	// act
+	const newArray = new PyJsArray(array);
+
+	// assert
+	expect(newArray["1:5:2"]).toStrictEqual([
+		"ball",
+		"dog",
+	]);
+});
+
+test("PyJsArray accepts a step parameter in reverse. From 5-1. NOTE END IS NOT INCLUSIVE", () => {
+	// arrange
+	const array = [
+		"apple", // 0
+		"ball", // 1
+		"cat", // 2
+		"dog", // 3
+		"elephant", // 4
+		"goat" // 5
+	];
+
+	// act
+	const newArray = new PyJsArray(array);
+
+	// validate our indexes are right
+	expect(array[1]).toBe("ball");
+	expect(array[5]).toBe("goat");
+
+	// assert
+	expect(newArray["5:1:-1"]).toStrictEqual([
+		"goat",
+		"elephant",
+		"dog",
+		"cat"
+	]);
+});
+
+test("PyJsArray accepts a -2 step paramter. From 5-1. NOTE END IS NOT INCLUSIVE", () => {
+	// arrange
+	const array = [
+		"apple", // 0
+		"ball", // 1
+		"cat", // 2
+		"dog", // 3
+		"elephant", // 4
+		"goat" // 5
+	];
+
+	// act
+	const newArray = new PyJsArray(array);
+
+	// assert
+	expect(newArray["5:1:-2"]).toStrictEqual([
+		"goat",
+		"dog",
+	]);
+});

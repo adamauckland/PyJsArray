@@ -41,4 +41,24 @@ Now let's slice!
 
 # NOTE! YOU NEED TO QUOTE THE KEY!
 
-Javascript uses `:` so when you want to use `:` QUOTE IT!
+Stepped slicing:
+
+	const array = [
+		"apple",
+		"ball",
+		"cat",
+		"dog",
+		"elephant",
+		"fish"
+	];
+
+	newArray["1:5:2"] // returns ["ball", "dog" ]
+
+# END INDEXES ARE NON-INCLUSIVE.
+
+In the above example, we do not get "fish" returned because "fish" is at index[5] and as 5 is our end index (non-inclusive), it gets ommitted.
+
+That's how it works in Python.
+
+
+Javascript uses `:` so when you want to use `:` QUOTE IT! sorry.
