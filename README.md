@@ -41,7 +41,7 @@ Now let's slice!
 
 # NOTE! YOU NEED TO QUOTE THE KEY!
 
-Stepped slicing:
+Stepped slicing. A third "step" parameter can be passed in to return every 2nd, 3rd or nth item. It also works in reverse.
 
 	const array = [
 		"apple",
@@ -53,6 +53,10 @@ Stepped slicing:
 	];
 
 	newArray["1:5:2"] // returns ["ball", "dog" ]
+
+When reversing, start index must be higher than end index.
+
+	newArray["5:1:-2"]
 
 # END INDEXES ARE NON-INCLUSIVE.
 
